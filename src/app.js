@@ -79,7 +79,7 @@ app.use((req, res, next) => {
   if (req.path.startsWith('/api-docs')) {
     return next();
   }
-  res.status(404).send({ message: "Error - Route not found" }); // Send a JSON response with a status of 404 (Not Found)
+  res.status(404).send({ message: "Error - Route not found" }); 
 });
 
 module.exports = app; // Export the Express application
