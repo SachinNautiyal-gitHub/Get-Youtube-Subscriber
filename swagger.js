@@ -7,7 +7,7 @@ const swagger = {
     },
     "schemes": ["https","http"],
     "host": "",
-    "basePath": "/",
+    "basePath": "https://get-youtube-subscriber-rho.vercel.app/",
     "paths" : {
         "/subscribers" : {
             "get" : {
