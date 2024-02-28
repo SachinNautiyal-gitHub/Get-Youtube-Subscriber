@@ -9,20 +9,20 @@ const swaggerSpecs = require('../swagger.js');
 
 const app = express(); // Create an Express application
 
-// const myMiddleware = (req, res, next) => {
+// app.use('/api-docs',(req, res, next) => {
 //   const baseUrl = `${req.protocol}://${req.get('host')}`;
-//   console.log('Base URL:', baseUrl);
 //   swaggerSpecs.host = baseUrl.slice(7, baseUrl.length)
 //   app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 //   next();
-// };
+// });
 
-app.use('/api-docs',(req, res, next) => {
+app.use('/api-docs', swaggerUi.serve, (req, res) => {
   const baseUrl = `${req.protocol}://${req.get('host')}`;
-  swaggerSpecs.host = baseUrl.slice(7, baseUrl.length)
-  app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
-  next();
+  const modifiedSpecs = { ...swaggerSpecs, host: baseUrl.slice(7) };
+  swaggerUi.setup(modifiedSpecs)(req, res);
 });
+
+
 
 //HOME PAGE
 app.get("/", (req, res) => {
