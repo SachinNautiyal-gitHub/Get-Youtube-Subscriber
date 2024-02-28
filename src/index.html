@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube Subscribers</title>
+    <style>
+
+      *{
+        margin: 0;
+        padding: 0;
+      }
+
+      .container{
+         display: flex;
+         width: 100vw;
+         height: 100vh;
+         align-items: center;
+         flex-direction: column;
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         background-color: gray;
+      }
+
+      .almabetter{
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        font-size: 2rem;
+      }
+
+
+      .upperdiv{
+        margin: 2rem;
+      }
+
+      button{
+        padding: 0.5rem;
+        border-radius: 1rem;
+        cursor: pointer;
+      }
+
+      button:hover{
+        background-color: blueviolet;
+      }
+
+      input{
+        outline: none;
+        padding: 0.5rem;
+        border-radius:0.5rem ;
+      }
+
+
+    </style>
+  </head>
+  <body>
+
+      <div class="container">
+        <div class="almabetter">
+          <h1>Almabetter BackEnd Project</h1>
+        </div>
+        <div class="upperdiv">
+          <h1>Get Youtube Subscribers</h1>
+          <h2>You can try entering each route using the routes given below</h2>
+        </div>
+        <div class="lowerdiv">
+          <ul>
+            <li>
+              GET <b>/subscribers</b> : Provides an array of all subscribers
+              details in the database.
+              <a href="/subscribers"><button>Get Subscribers</button></a>
+            </li>
+            <li>
+              GET <b>/subscribers/names</b> : Provides an array of all subscribers
+              with only two feilds, their names and subscribed channel.
+              <a href="/subscribers/names"><button>Get Subscribers</button></a>
+            </li>
+            <li>
+              GET <b>/subscribers/:id</b> : Provides the details of subscriber
+              with the given ID.
+              <input type="text" placeholder="Enter a valid Id" id="userInput" >
+              <a href="" id="mylink" onclick="setHref()"><button >Get Subscribers</button></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+  </body>
+
+  <script>
+   const setHref = () =>{
+      const url = document.getElementById("userInput").value;
+      if ( url.length > 0){
+        document.getElementById('mylink').href = "subscribers/"+url;
+      }
+      else{
+        alert('please enter a valid id')
+      }
+   }
+
+
+  </script>
+</html>
