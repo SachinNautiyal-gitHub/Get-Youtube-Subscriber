@@ -3,7 +3,7 @@ const path = require("path"); // Import the path module for working with file pa
 
 //SCHEMA
 const schema = require("./models/subscribers"); // Import the subscriber model
-const { error } = require("console"); // Import the 'error' object from the console module
+const { error } = require("console"); 
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpecs = require('../swagger.js');
 
